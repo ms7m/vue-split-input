@@ -19,6 +19,8 @@
    v-model="values[i - 1]"
    :data-index="i - 1"
   />
+  <span v-if="showSeperator || manuallySpecifySeperator.includes(i)" :class="seperatorClasses">{{seperator}}</span>
+  
  </div>
 </template>
 <script lang="ts">
@@ -64,6 +66,22 @@
    disabled: {
     type: Boolean,
     default: false,
+   },
+   showSeperator: {
+    type: Boolean,
+    default: true,
+   },
+   manuallySpecifySeperator: {
+     type: Array,
+     default: []
+   },
+   seperator: {
+    type: String,
+    default: '-',
+   },
+   seperatorClasses: {
+    type: String,
+    default: '',
    },
    placeholder: {
     type: String,
